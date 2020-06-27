@@ -75,9 +75,15 @@ class DoublyLinkedList:
 
     # Deleting the element as per the key
     def delete(self, key):
+        if not self.head:
+            print('Linked list is empty')
+            return
         curr = self.head
         while curr and curr.data != key:
             curr = curr.next
+        if not curr:
+            print('Element not in the linked list')
+            return
         if not curr.next:
             return self.pop()
         elif not curr.prev:
